@@ -4,13 +4,13 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 81867aee29120d917404d7445b640e5c3ac778c1b0cad70885953f1d0900726c
+-- hash: 90e915a86fad1a8453e3364c030382b61519b1a5309bfa54d03f4389eb27ec98
 
 name:           template
 version:        1.0.0
 author:         Jappie Klooster
 maintainer:     jappieklooster@hotmail.com
-copyright:      2019 Jappie Klooster
+copyright:      2020 Jappie Klooster
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
