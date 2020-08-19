@@ -1,0 +1,12 @@
+:set -i./src:./test
+:set -fobject-code
+:set -O0
+:set -j4
+:set +s
+:set -Wall
+:set -Wincomplete-uni-patterns
+:set -Wincomplete-record-updates
+:set -Widentities
+:set -Wredundant-constraints
+:set -Wcpp-undef
+:set -Werror=incomplete-patterns

@@ -2,9 +2,9 @@ let
 pinnedPkgs = 
     (builtins.fetchGit {
     # Descriptive name to make the store path easier to identify
-    name = "nixos-pin-19.10.2019";
+    name = "nixos-pin-19.08.2020";
     url = https://github.com/nixos/nixpkgs/;
-    rev = "f203d50d09052792866f926e7c2d3b3bf76d3388";
+    rev = "f7651718b5966be91c4d9a6bbcbd468bd7d17bc8";
     }) ;
 in
 import pinnedPkgs {

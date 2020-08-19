@@ -14,23 +14,24 @@ hpack:
 	nix-shell ./nix/hpack-shell.nix --run "make update-cabal"
 
 ghcid: clean hpack etags
-	nix-shell --run "ghcid -s \"import Main\" -c \"cabal new-repl\" -T \"main\" test:unit"
+	ghcid \
+		--test="main" \
+		--command="ghci" \
+		test/Spec
+ghcid-app: clean hpack etags
+	ghcid \
+		--main="main" \
+		--command="ghci" \
+		app/exe
 
 ghci:
-	nix-shell --run "cabal new-repl test:unit"
+	ghci app/exe
 
 etags:
-	nix-shell --run "hasktags  -e ./src"
+	hasktags  -e ./src
 
 update-cabal:
 	hpack --force ./
-
-enter:
-	nix-shell --cores 0 -j 8 --pure
-
-RUN=""
-run-in-shell:
-	nix-shell --cores 0 -j 8 --run "$(RUN)"
 
 clean:
 	rm -fR dist dist-*
@@ -38,14 +39,10 @@ clean:
 .PHONY: test
 
 sdist:
-	make run-in-shell RUN="cabal sdist"
-
-run_:
-	cabal new-run exe --ghc-options $(OPTIMIZATION) -- \
-	    # whatever option to haskell program
+	cabal sdist
 
 run:
-	nix-shell --run "make run_"
+	cabal new-run exe --ghc-options $(OPTIMIZATION) -- \
 
 brittany_:
 	$(shell set -x; for i in `fd hs`; do hlint --refactor --refactor-options=-i $$i; brittany --write-mode=inplace $$i; done)
