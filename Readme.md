@@ -4,15 +4,17 @@
 [![Build status](https://img.shields.io/travis/jappeace/haskell-template-project)](https://travis-ci.org/jappeace/haskell-template-project/builds/)
 [![Jappiejappie](https://img.shields.io/badge/discord-jappiejappie-black?logo=discord)](https://discord.gg/Hp4agqy)
 
-# Haskell project template
+> The eye that looks ahead to the safe course is closed forever.
 
-Using cabal within a nix shell.
-If you like nix this is a good way of doing haskell dev.
+Haskell project template.
+
+Set up cabal within a nix shell.
+If you like nix this is a good way of doing haskell development.
 
 similar to: https://github.com/monadfix/nix-cabal
 except this has a makefile and ghcid.
 We also make aggressive use of [pinning](https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs)
-to have consistency.
+ensuring project builds for ever (theoretically).
 
 Comes with:
 + [GHCID](https://jappieklooster.nl/ghcid-for-multi-package-projects.html)
@@ -21,3 +23,23 @@ Comes with:
 + A couple of handy make commands.
 + Starting haskell files, assuming we put practically all code in library
 + Working HSpec, The detection macro will pickup any file ending with Spec.hs
+
+## Usage
+Enter the nix shell.
+```
+nix-shell
+```
+You can checkout the makefile to see what's available:
+```
+cat makefile
+```
+
+### Running
+```
+make run
+```
+
+### Fast filewatch which runs tests
+```
+make ghcid
+```
