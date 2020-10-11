@@ -13,12 +13,12 @@ haddock-hackage:
 hpack:
 	nix-shell ./nix/hpack-shell.nix --run "make update-cabal"
 
-ghcid: clean hpack etags
+ghcid: clean hpack
 	ghcid \
 		--test="main" \
 		--command="ghci" \
 		test/Spec
-ghcid-app: clean hpack etags
+ghcid-app: clean hpack
 	ghcid \
 		--main="main" \
 		--command="ghci" \
@@ -30,7 +30,7 @@ ghci:
 etags:
 	hasktags  -e ./src
 
-update-cabal:
+update-cabal: etags
 	hpack --force ./
 
 clean:
