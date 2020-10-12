@@ -38,7 +38,8 @@ clean:
 
 .PHONY: test
 
-sdist:
+sdist: hpack
+	nix-build . # ad-hoc proof it builds
 	cabal sdist
 
 run:
