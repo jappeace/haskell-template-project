@@ -4,10 +4,12 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 04790193685e24f1adbbc126c0513eccabcbf711dd17e207c64d068bc3a8ef76
+-- hash: 1a027d59a348c3abbe63de2e0abd69e8381c1d3c27c5e8d6985443158122eccc
 
 name:           template
 version:        1.0.0
+homepage:       https://github.com/jappeace/haskell-template-project#readme
+bug-reports:    https://github.com/jappeace/haskell-template-project/issues
 author:         Jappie Klooster
 maintainer:     jappieklooster@hotmail.com
 copyright:      2020 Jappie Klooster
@@ -17,6 +19,11 @@ build-type:     Simple
 extra-source-files:
     Readme.md
     LICENSE
+    Changelog.md
+
+source-repository head
+  type: git
+  location: https://github.com/jappeace/haskell-template-project
 
 library
   exposed-modules:
@@ -28,7 +35,8 @@ library
   default-extensions: EmptyCase FlexibleContexts FlexibleInstances InstanceSigs MultiParamTypeClasses LambdaCase MultiWayIf NamedFieldPuns TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies GeneralizedNewtypeDeriving StandaloneDeriving OverloadedStrings TypeApplications
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities
   build-depends:
-      base >=4.7 && <5
+      Cabal
+    , base >=4.7 && <5
   default-language: Haskell2010
 
 executable exe
@@ -40,7 +48,8 @@ executable exe
   default-extensions: EmptyCase FlexibleContexts FlexibleInstances InstanceSigs MultiParamTypeClasses LambdaCase MultiWayIf NamedFieldPuns TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies GeneralizedNewtypeDeriving StandaloneDeriving OverloadedStrings TypeApplications
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      Cabal
+    , base >=4.7 && <5
     , template
   default-language: Haskell2010
 
@@ -55,7 +64,8 @@ test-suite unit
   default-extensions: EmptyCase FlexibleContexts FlexibleInstances InstanceSigs MultiParamTypeClasses LambdaCase MultiWayIf NamedFieldPuns TupleSections DeriveFoldable DeriveFunctor DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies GeneralizedNewtypeDeriving StandaloneDeriving OverloadedStrings TypeApplications
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities
   build-depends:
-      base >=4.7 && <5
+      Cabal
+    , base >=4.7 && <5
     , hspec
     , hspec-core
     , template
