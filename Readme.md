@@ -32,24 +32,29 @@ Assuming the name of your new project is `new-project`.
 ```
 git clone git@github.com:jappeace/haskell-template-project.git new-project
 cd new-project
-git remote add template git@github.com:jappeace/haskell-template-project.git
-git remote set-url origin git@github.com:YOUR-ORG-OR-USER-NAME/new-project.git
 ```
-
-We can get template updates like this if we want to by doing `git pull template`.
 
 + Edit package.yaml, find and replace template with `new-project`
 + Edit Changelog.md replace template with `new-project`
   Also describe your version 1.0.0 release.
 + Edit default.nix, replace template with `new-project`.
 
+#### Reconfigure remotes
+```
+git remote add template git@github.com:jappeace/haskell-template-project.git
+git remote set-url origin git@github.com:YOUR-ORG-OR-USER-NAME/new-project.git
+```
+
+We can get template updates like this if we want to by doing `git pull template`.
+There will be a large amount of conflicts, but the merge commit should solve them permanently.
+
 #### Bonus modification
 
-+ Empty this readme
-+ Give short project description
++ Empty this readme.
++ Give short project description.
 + Add new quote suited for the project.
-  I like looking for famous philosphers.
-  For example for fakedata-quickcheck I used kant because
+  I like looking for famous philosophers.
+  For example for fakedata-quickcheck I used Kant because
   he dealt with the question "what is truth" a lot.
 
 ### Tools
