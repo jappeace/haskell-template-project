@@ -34,10 +34,15 @@ git clone git@github.com:jappeace/haskell-template-project.git new-project
 cd new-project
 ```
 
-+ Edit package.yaml, find and replace template with `new-project`
-+ Edit Changelog.md replace template with `new-project`
-  Also describe your version 1.0.0 release.
-+ Edit default.nix, replace template with `new-project`.
++ [ ] Edit package.yaml,
+    + [ ] find and replace template with `new-project`
+    + [ ] Update copyright
+    + [ ] Update github
++ [ ] Run `make hpack` to update cabal files
++ [ ] Edit Changelog.md
+  + [ ] replace template with `new-project`
+  + [ ] Also describe your version 1.0.0 release.
++ [ ] Edit default.nix, replace template with `new-project`.
 
 #### Reconfigure remotes
 ```
@@ -50,9 +55,9 @@ There will be a large amount of conflicts, but the merge commit should solve the
 
 #### Bonus modification
 
-+ Empty this readme.
-+ Give short project description.
-+ Add new quote suited for the project.
++ [ ] Empty this readme.
++ [ ] Give short project description.
++ [ ] Add new quote suited for the project.
   For example for [fakedata-quickcheck](https://github.com/fakedata-haskell/fakedata-quickcheck#readme)
   I used Kant because
   he dealt with the question "what is truth" a lot.
