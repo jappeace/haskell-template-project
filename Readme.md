@@ -54,14 +54,17 @@ git remote set-url origin git@github.com:YOUR-ORG-OR-USER-NAME/new-project.git
 We can get template updates like this if we want to by doing `git pull template`.
 There will be a large amount of conflicts, but the merge commit should solve them permanently.
 
-#### Bonus modification
+#### Readme
 
-+ [ ] Empty this readme.
++ [ ] Select desired badges. 
+  + [ ] Point build badges to right project
 + [ ] Give short project description.
 + [ ] Add new quote suited for the project.
   For example for [fakedata-quickcheck](https://github.com/fakedata-haskell/fakedata-quickcheck#readme)
   I used Kant because
   he dealt with the question "what is truth" a lot.
++ [ ] Truncate this checklist
++ [ ] Truncate motivation for using  this template
 
 ### Tools
 Enter the nix shell.
