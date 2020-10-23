@@ -25,6 +25,34 @@ Comes with:
 + Working HSpec, The detection macro will pickup any file ending with Spec.hs
 
 ## Usage
+
+### Modifying for your project
+Assuming the name of your new project is `new-project`.
+
+```
+git clone git@github.com:jappeace/haskell-template-project.git new-project
+cd new-project
+git remote add template git@github.com:jappeace/haskell-template-project.git
+git remote set-url origin git@github.com:YOUR-ORG-OR-USER-NAME/new-project.git
+```
+
+We can get template updates like this if we want to by doing `git pull template`.
+
++ Edit package.yaml, find and replace template with `new-project`
++ Edit Changelog.md replace template with `new-project`
+  Also describe your version 1.0.0 release.
++ Edit default.nix, replace template with `new-project`.
+
+#### Bonus modification
+
++ Empty this readme
++ Give short project description
++ Add new quote suited for the project.
+  I like looking for famous philosphers.
+  For example for fakedata-quickcheck I used kant because
+  he dealt with the question "what is truth" a lot.
+
+### Tools
 Enter the nix shell.
 ```
 nix-shell
