@@ -53,8 +53,8 @@ There will be a large amount of conflicts, but the merge commit should solve the
 + Empty this readme.
 + Give short project description.
 + Add new quote suited for the project.
-  I like looking for famous philosophers.
-  For example for fakedata-quickcheck I used Kant because
+  For example for [fakedata-quickcheck](https://github.com/fakedata-haskell/fakedata-quickcheck#readme)
+  I used Kant because
   he dealt with the question "what is truth" a lot.
 
 ### Tools
