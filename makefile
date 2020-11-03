@@ -50,3 +50,8 @@ brittany_:
 
 brittany:
 	nix-shell ./nix/travis-shell.nix --run "make brittany_"
+
+bundle:
+	rm -f result
+	nix-build nix/bundle.nix
+	mv result template

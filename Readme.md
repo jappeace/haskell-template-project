@@ -40,10 +40,13 @@ cd new-project
     + [ ] Update copyright
     + [ ] Update github
 + [ ] Run `make hpack` to update cabal files
++ [ ] remove template.cabal
 + [ ] Edit Changelog.md
   + [ ] replace template with `new-project`
   + [ ] Also describe your version 1.0.0 release.
 + [ ] Edit default.nix, replace template with `new-project`.
++ [ ] Edit copyright in LICENSE
++ [ ] Edit `nix/bundle.nix` to point to the executable
 
 #### Reconfigure remotes
 ```
