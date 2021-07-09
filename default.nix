@@ -1,11 +1,10 @@
 { pkgs ? import ./nix/pin.nix { },
   # should be default ghc
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/all-packages.nix#L9029
-  compiler ? "ghc884",
   ... }:
 
 let
-  hpkgs = pkgs.haskell.packages.${compiler};
+  hpkgs = pkgs.haskellPackages;
   ignore = import ./nix/gitignoreSource.nix { inherit (pkgs) lib; };
   # https://github.com/NixOS/nixpkgs/blob/dbacb52ad8/pkgs/development/haskell-modules/make-package-set.nix#L216
   src = ignore.gitignoreSource ./.;
