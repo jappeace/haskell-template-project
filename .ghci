@@ -10,3 +10,23 @@
 :set -Wredundant-constraints
 :set -Wcpp-undef
 :set -Werror=incomplete-patterns
+
+:set -XEmptyCase
+:set -XFlexibleContexts
+:set -XFlexibleInstances
+:set -XInstanceSigs
+:set -XMultiParamTypeClasses
+:set -XLambdaCase
+:set -XMultiWayIf
+:set -XNamedFieldPuns
+:set -XTupleSections
+:set -XDeriveFoldable
+:set -XDeriveFunctor
+:set -XDeriveGeneric
+:set -XDeriveLift
+:set -XDeriveTraversable
+:set -XDerivingStrategies
+:set -XGeneralizedNewtypeDeriving
+:set -XStandaloneDeriving
+:set -XOverloadedStrings
+:set -XTypeApplications
