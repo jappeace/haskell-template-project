@@ -10,6 +10,8 @@
 :set -Wredundant-constraints
 :set -Wcpp-undef
 :set -Werror=incomplete-patterns
+:set -fwarn-tabs
+:set -Wpartial-fields
 
 :set -XEmptyCase
 :set -XFlexibleContexts
