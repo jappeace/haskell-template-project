@@ -1,4 +1,4 @@
-{ pkgs ? import ./nix/pin.nix { },
+{ pkgs ? import ./nix/pkgs.nix,
   # should be default ghc
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/all-packages.nix#L9029
   ... }:

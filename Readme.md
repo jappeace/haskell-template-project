@@ -47,6 +47,8 @@ cd new-project
 + [ ] Edit default.nix, replace template with `new-project`.
 + [ ] Edit copyright in LICENSE
 + [ ] Edit `nix/bundle.nix` to point to the executable
++ [ ] Edit `nix/ci.nix` and `nix/pkgs.nix` for name of package
++ [ ] Edit `shell.nix`
 
 #### Reconfigure remotes
 ```
