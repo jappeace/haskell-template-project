@@ -68,10 +68,11 @@ executables:
 
 tests:
   unit:
-    main:                Spec.hs
+    main:                Main.hs
     source-dirs:
     - test
     dependencies:
-    - hspec
-    - hspec-core
+    - tasty
+    - tasty-quickcheck
+    - tasty-hunit
     - template

@@ -2,6 +2,10 @@ OPTIMIZATION=-O0
 build: 
 	cabal new-build all -j --ghc-options $(OPTIMIZATION)
 
+.PHONY: test
+test:
+	cabal new-test -j --ghc-options $(OPTIMIZATION)
+
 haddock:
 	cabal new-haddock all
 
