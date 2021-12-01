@@ -1,6 +1,6 @@
 module Main where
 
-import  qualified Lib
+import qualified Template
 
 main :: IO ()
-main = Lib.main
+main = Template.main

@@ -1,4 +1,4 @@
-module Lib
+module Template
   ( main
   )
 where
