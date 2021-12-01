@@ -4,7 +4,7 @@ license:             MIT
 author:              "Jappie Klooster"
 maintainer:          "jappieklooster@hotmail.com"
 copyright:           "2020 Jappie Klooster"
-github:              "jappeace/haskell-template-project"
+github:              "jappeace/template"
 
 extra-source-files:
 - Readme.md
