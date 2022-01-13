@@ -1,3 +1,5 @@
+-- https://downloads.haskell.org/ghc/latest/docs/html/users_guide/ghci.html#ghci-commands
+
 :set -i./src:./test
 :set -fobject-code
 :set -O0
