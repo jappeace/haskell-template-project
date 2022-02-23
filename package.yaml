@@ -59,10 +59,8 @@ library:
 
 executables:
   exe:
-    main:                exe.hs
-    source-dirs:         app
-    dependencies:
-    - template
+    main:                Main.hs
+    source-dirs:         src
     ghc-options:
     - -threaded
     - -rtsopts
