@@ -59,8 +59,8 @@ library:
 
 executables:
   exe:
-    main:                exe.hs
-    source-dirs:         app
+    main:                Template.hs
+    source-dirs:         src
     dependencies:
     - template
     ghc-options:
