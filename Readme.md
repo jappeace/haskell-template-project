@@ -35,20 +35,16 @@ git clone git@github.com:jappeace/haskell-template-project.git new-project
 cd new-project
 ```
 
-+ [ ] Edit package.yaml,
++ [ ] Edit template.cabal,
     + [ ] find and replace template with `new-project`
     + [ ] Update copyright
     + [ ] Update github
-+ [ ] Run `make hpack` to update cabal files
-+ [ ] remove template.cabal
++ [ ] rename template.cabal to new-project.cabal
 + [ ] Edit Changelog.md
   + [ ] replace template with `new-project`
   + [ ] Also describe your version 1.0.0 release.
-+ [ ] Edit default.nix, replace template with `new-project`.
++ [ ] Edit flake.nix, replace template with `new-project`.
 + [ ] Edit copyright in LICENSE
-+ [ ] Edit `nix/bundle.nix` to point to the executable
-+ [ ] Edit `nix/ci.nix` and `nix/pkgs.nix` for name of package
-+ [ ] Edit `shell.nix`
 
 #### Reconfigure remotes
 ```
@@ -74,7 +70,7 @@ There will be a large amount of conflicts, but the merge commit should solve the
 ### Tools
 Enter the nix shell.
 ```
-nix-shell
+nix develop
 ```
 You can checkout the makefile to see what's available:
 ```
