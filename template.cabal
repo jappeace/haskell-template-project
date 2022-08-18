@@ -1,4 +1,4 @@
-cabal-version: 1.12
+cabal-version: 2.2
 
 -- This file has been generated from package.yaml by hpack version 0.34.7.
 --
@@ -23,102 +23,68 @@ source-repository head
   type: git
   location: https://github.com/jappeace/template
 
+common common-options
+  default-extensions: 
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      InstanceSigs
+      MultiParamTypeClasses
+      LambdaCase
+      MultiWayIf
+      NamedFieldPuns
+      TupleSections
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveLift
+      DeriveTraversable
+      DerivingStrategies
+      GeneralizedNewtypeDeriving
+      StandaloneDeriving
+      OverloadedStrings
+      TypeApplications
+      NumericUnderscores
+
+  ghc-options:
+    -O2 -Wall -Werror -Wincomplete-uni-patterns
+    -Wincomplete-record-updates -Widentities -Wredundant-constraints
+    -Wcpp-undef -fwarn-tabs -Wpartial-fields
+    -fdefer-diagnostics -Wunused-packages
+    -fenable-th-splice-warnings
+
+  build-depends:
+      base                         >=4.9.1.0 && <5
+
+  default-language: Haskell2010
+
 library
+  import: common-options
   exposed-modules:
       Template
   other-modules:
       Paths_template
   hs-source-dirs:
       src
-  default-extensions:
-      EmptyCase
-      FlexibleContexts
-      FlexibleInstances
-      InstanceSigs
-      MultiParamTypeClasses
-      LambdaCase
-      MultiWayIf
-      NamedFieldPuns
-      TupleSections
-      DeriveFoldable
-      DeriveFunctor
-      DeriveGeneric
-      DeriveLift
-      DeriveTraversable
-      DerivingStrategies
-      GeneralizedNewtypeDeriving
-      StandaloneDeriving
-      OverloadedStrings
-      TypeApplications
-  ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities -Wcpp-undef -fwarn-tabs -Wpartial-fields -fdefer-diagnostics -Wunused-packages
-  build-depends:
-      base >=4.7 && <5
-  default-language: Haskell2010
 
 executable exe
+  import: common-options
   main-is: Main.hs
-  other-modules:
-      Paths_template
   hs-source-dirs:
       app
-  default-extensions:
-      EmptyCase
-      FlexibleContexts
-      FlexibleInstances
-      InstanceSigs
-      MultiParamTypeClasses
-      LambdaCase
-      MultiWayIf
-      NamedFieldPuns
-      TupleSections
-      DeriveFoldable
-      DeriveFunctor
-      DeriveGeneric
-      DeriveLift
-      DeriveTraversable
-      DerivingStrategies
-      GeneralizedNewtypeDeriving
-      StandaloneDeriving
-      OverloadedStrings
-      TypeApplications
-  ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities -Wcpp-undef -fwarn-tabs -Wpartial-fields -fdefer-diagnostics -Wunused-packages -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , template
-  default-language: Haskell2010
+      template
 
 test-suite unit
+  import: common-options
   type: exitcode-stdio-1.0
   main-is: Test.hs
   other-modules:
       Paths_template
   hs-source-dirs:
       test
-  default-extensions:
-      EmptyCase
-      FlexibleContexts
-      FlexibleInstances
-      InstanceSigs
-      MultiParamTypeClasses
-      LambdaCase
-      MultiWayIf
-      NamedFieldPuns
-      TupleSections
-      DeriveFoldable
-      DeriveFunctor
-      DeriveGeneric
-      DeriveLift
-      DeriveTraversable
-      DerivingStrategies
-      GeneralizedNewtypeDeriving
-      StandaloneDeriving
-      OverloadedStrings
-      TypeApplications
-  ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities -Wcpp-undef -fwarn-tabs -Wpartial-fields -fdefer-diagnostics -Wunused-packages
   build-depends:
-      base >=4.7 && <5
-    , tasty
+      tasty
     , tasty-hunit
     , tasty-quickcheck
     , template
-  default-language: Haskell2010
