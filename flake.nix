@@ -14,9 +14,12 @@
     let
       overlays = [
         (haskellNix.overlay
-        (final: prev: {
+          (
+
+        builtins.trace "over"
+            (final: prev: {
           # This overlay adds our project to pkgs
-          template =
+          template = builtins.trace "templateeee"
             final.haskell-nix.project' {
               src = ./.;
               compiler-nix-name = "ghc924";
@@ -33,16 +36,13 @@
               shell.buildInputs = [
               ];
             };
-        }))
-        (final: prev: {
-          inherit (haskellNix) config;
-        }
-        )
+            })))
       ];
       # TODO this import is wrong.
       # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462/3
       pkgs = builtins.foldl'
-              (acc: overlay: acc.extend overlay)
+        (acc: overlay:
+          acc.lib.extends overlay)
               nixpkgs.legacyPackages.${system}
               overlays;
       flake = pkgs.template.flake {};
