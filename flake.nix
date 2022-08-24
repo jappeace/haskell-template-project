@@ -9,10 +9,11 @@
   outputs = { self, nixpkgs, flake-utils, haskellNix }:
     flake-utils.lib.eachSystem [
       "x86_64-linux"
-      # "x86_64-darwin"
+      "x86_64-darwin"
     ] (system:
     let
-      overlays = [ haskellNix.overlay
+      overlays = [
+        (haskellNix.overlay
         (final: prev: {
           # This overlay adds our project to pkgs
           template =
@@ -32,14 +33,18 @@
               shell.buildInputs = [
               ];
             };
-        })
+        }))
+        (final: prev: {
+          inherit (haskellNix) config;
+        }
+        )
       ];
       # TODO this import is wrong.
       # https://discourse.nixos.org/t/using-nixpkgs-legacypackages-system-vs-import/17462/3
-      pkgs = import nixpkgs {
-        inherit system;
-        inherit overlays;
-        inherit (haskellNix) config; };
+      pkgs = builtins.foldl'
+              (acc: overlay: acc.extend overlay)
+              nixpkgs.legacyPackages.${system}
+              overlays;
       flake = pkgs.template.flake {};
 
     in pkgs.lib.recursiveUpdate flake {
