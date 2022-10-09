@@ -39,6 +39,11 @@ update-cabal: etags
 
 clean:
 	rm -fR dist dist-*
+	find . -name '*.hi' -type f -delete
+	find . -name '*.o' -type f -delete
+	find . -name '*.dyn_hi' -type f -delete
+	find . -name '*.dyn_o' -type f -delete
+	find . -name 'autogen*' -type f -delete
 
 .PHONY: test
 
