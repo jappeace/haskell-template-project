@@ -21,7 +21,7 @@ ghcid: clean hpack
 	ghcid \
 		--test="main" \
 		--command="ghci" \
-		test/Spec
+		test/Test
 ghcid-app: clean hpack
 	ghcid \
 		--main="main" \
