@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.6.
+-- This file has been generated from package.yaml by hpack version 0.34.7.
 --
 -- see: https://github.com/sol/hpack
 
@@ -23,9 +23,10 @@ source-repository head
   type: git
   location: https://github.com/jappeace/template
 
+
+
 library
   exposed-modules:
-      Main
       Template
   other-modules:
       Paths_template
@@ -59,10 +60,9 @@ library
 executable exe
   main-is: Main.hs
   other-modules:
-      Template
       Paths_template
   hs-source-dirs:
-      src
+      app
   default-extensions:
       EmptyCase
       FlexibleContexts
@@ -90,7 +90,7 @@ executable exe
 
 test-suite unit
   type: exitcode-stdio-1.0
-  main-is: Main.hs
+  main-is: Test.hs
   other-modules:
       Paths_template
   hs-source-dirs:
