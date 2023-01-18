@@ -23,8 +23,6 @@ source-repository head
   type: git
   location: https://github.com/jappeace/template
 
-
-
 library
   exposed-modules:
       Template
@@ -86,6 +84,7 @@ executable exe
   ghc-options: -Wall -Wcompat -Wincomplete-uni-patterns -Wredundant-constraints -Wincomplete-record-updates -Widentities -Wcpp-undef -fwarn-tabs -Wpartial-fields -fdefer-diagnostics -Wunused-packages -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , template
   default-language: Haskell2010
 
 test-suite unit
