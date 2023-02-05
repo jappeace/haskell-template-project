@@ -6,6 +6,7 @@
 #  https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/make-package-set.nix#L345
 pkgs.haskellPackages.shellFor {
   packages = ps : [ ps.template ];
+  withHoogle = true;
   buildInputs = [
         pkgs.ghcid
         pkgs.cabal-install

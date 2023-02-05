@@ -64,3 +64,7 @@ bundle:
 	rm -f result
 	nix-build nix/bundle.nix
 	mv result template
+
+
+hoogle:
+	hoogle server --local -p 8080
