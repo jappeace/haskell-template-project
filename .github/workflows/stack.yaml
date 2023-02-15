@@ -23,6 +23,12 @@ jobs:
             stack-yaml: stack-lts-18.yaml
             extra-args: ""
           - os: ubuntu-latest
+            stack-yaml: stack-lts-19.yaml
+            extra-args: ""
+          - os: ubuntu-latest
+            stack-yaml: stack-lts-20.yaml
+            extra-args: ""
+          - os: ubuntu-latest
             stack-yaml: stack-nightly.yaml
             extra-args: ""
           - os: macos-latest
@@ -32,15 +38,26 @@ jobs:
             stack-yaml: stack-lts-18.yaml
             extra-args: ""
           - os: macos-latest
+            stack-yaml: stack-lts-19.yaml
+            extra-args: ""
+          - os: macos-latest
+            stack-yaml: stack-lts-20.yaml
+            extra-args: ""
+          - os: macos-latest
             stack-yaml: stack-nightly.yaml
             extra-args: ""
           - os: windows-latest
             stack-yaml: stack-lts-17.yaml
             extra-args: ""
-          # broken at the moment
-          # - os: windows-latest
-          #   stack-yaml: stack-lts-18.yaml
-          #   extra-args: ""
+          - os: windows-latest
+            stack-yaml: stack-lts-18.yaml
+            extra-args: ""
+          - os: windows-latest
+            stack-yaml: stack-lts-19.yaml
+            extra-args: ""
+          - os: windows-latest
+            stack-yaml: stack-lts-20.yaml
+            extra-args: ""
           - os: windows-latest
             stack-yaml: stack-nightly.yaml
             extra-args: ""
