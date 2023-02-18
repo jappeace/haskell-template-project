@@ -29,3 +29,6 @@ jobs:
     - run: nix build
     - run: nix flake check
     - run: nix develop -c echo OK
+      # legacy actions
+    - run: nix-build
+    - run: nix-shell --run "echo OK"
