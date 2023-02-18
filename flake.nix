@@ -8,16 +8,20 @@
 
   outputs = { self, nixpkgs }:
     let
-      # `haskellPackages` contains all Haskell packages provided by Nixpkgs
-      # for the current system and GHC version.
-      pkgs = nixpkgs.legacyPackages.x86_64-linux.haskell.packages.ghc943.override {
-        overrides = self: super: {
-          # Add any project-specific dependencies here
-          # myDep = nixpkgs.pkgs.myDep;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      hpkgs = pkgs.haskell.packages.ghc943.override {
+        overrides = hold: hnew: {
+          template-project = hnew.callCabal2nix "template-project" ./. { };
         };
       };
     in
     {
-      defaultPackage.x86_64-linux =  pkgs.callCabal2nix "my-project" ./. { };
+      defaultPackage.x86_64-linux =  hpkgs.template-project;
+      devShell.x86_64-linux = hpkgs.shellFor {
+        packages = ps : [ ps."template-project" ];
+        buildInputs = [
+          pkgs.cabal-install
+        ];
+      };
     };
 }
