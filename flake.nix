@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, flake-compat }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       hpkgs = pkgs.haskell.packages.ghc943.override {
