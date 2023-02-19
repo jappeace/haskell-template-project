@@ -1,4 +1,5 @@
-# https://github.com/input-output-hk/haskell.nix/blob/master/docs/tutorials/getting-started-flakes.md
+# I used chatgpt to generate this template and then just
+# modified to how I normally use these things.
 {
   description = "My Haskell project";
 
