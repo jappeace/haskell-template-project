@@ -1,16 +1,10 @@
-{
-  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/haskell-packages.nix
-  pkgs ? import ./nix/pkgs.nix
-}:
-#  https://input-output-hk.github.io/haskell.nix/tutorials/development/
-#  https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/make-package-set.nix#L345
-pkgs.haskellPackages.shellFor {
-  packages = ps : [ ps.template ];
-  withHoogle = true;
-  buildInputs = [
-        pkgs.ghcid
-        pkgs.cabal-install
-        ];
-  exactDeps = true;
-  NIX_PATH="nixpkgs=${pkgs.path}:.";
-}
+(import
+  (
+    let lock = builtins.fromJSON (builtins.readFile ./flake.lock); in
+    fetchTarball {
+      url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
+      sha256 = lock.nodes.flake-compat.locked.narHash;
+    }
+  )
+  { src = ./.; }
+).shellNix
