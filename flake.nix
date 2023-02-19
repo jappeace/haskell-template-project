@@ -24,7 +24,10 @@
       defaultPackage.x86_64-linux =  hpkgs.template-project;
       devShell.x86_64-linux = hpkgs.shellFor {
         packages = ps : [ ps."template-project" ];
+        withHoogle = true;
+
         buildInputs = [
+          pkgs.ghcid
           pkgs.cabal-install
         ];
       };
