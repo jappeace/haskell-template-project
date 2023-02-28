@@ -74,11 +74,13 @@ executable exe
       app
   build-depends:
       template
+  ghc-options: -Wno-unused-packages
 
 test-suite unit
   import: common-options
   type: exitcode-stdio-1.0
   main-is: Test.hs
+  ghc-options: -Wno-unused-packages
   other-modules:
       Paths_template
   hs-source-dirs:
