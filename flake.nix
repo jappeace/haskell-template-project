@@ -15,7 +15,7 @@
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       hpkgs = pkgs.haskell.packages.ghc943.override {
-        overrides = hold: hnew: {
+        overrides = hnew: hold: {
           template-project = hnew.callCabal2nix "template-project" ./. { };
         };
       };
