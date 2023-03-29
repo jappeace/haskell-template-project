@@ -28,6 +28,7 @@
         withHoogle = true;
 
         buildInputs = [
+          hpkgs.haskell-language-server
           pkgs.ghcid
           pkgs.cabal-install
         ];
