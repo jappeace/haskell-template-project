@@ -1,7 +1,6 @@
-
 module Main where
 
-import qualified Template
+import qualified OptParse
 
 main :: IO ()
-main = Template.main
+main = OptParse.main
