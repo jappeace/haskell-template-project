@@ -20,7 +20,7 @@ jobs:
         cabal-version: '3.6'
 
     - name: Cabal cache
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       env:
         cache-name: cache-cabal
       with:
