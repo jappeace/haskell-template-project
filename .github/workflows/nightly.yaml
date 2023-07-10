@@ -1,0 +1,43 @@
+name: cabal CI
+
+on:
+  # runs daily on Thursday at 8:00
+  schedule:
+           # ┌───────────── minute (0 - 59)
+           # │ ┌───────────── hour (0 - 23)
+           # │ │ ┌───────────── day of the month (1 - 31)
+           # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+           # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+           # │ │ │ │ │
+           # │ │ │ │ │
+           # │ │ │ │ │
+           # * * * * *
+    - cron: '0 8 * * *' # run daily  at 8 hour, https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install ghcup
+      run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+          ghcup --url-source https://ghc.gitlab.haskell.org/ghcup-metadata/ghcup-nightlies-0.0.7.yaml install ghc latest-nightly
+    - name: cabal update
+      run: |
+          cabal update
+    - name: cabal build
+      run: |
+          ls
+          pwd
+          cabal build all
+    - name: cabal test
+      run: |
+          cabal test all
+        
