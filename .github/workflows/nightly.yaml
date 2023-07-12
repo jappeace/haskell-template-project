@@ -1,7 +1,7 @@
 name: ghc nightly cron
 
 on:
-  # runs daily on Thursday at 8:00
+  # runs daily at 8:00
   schedule:
            # ┌───────────── minute (0 - 59)
            # │ ┌───────────── hour (0 - 23)
