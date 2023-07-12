@@ -29,6 +29,7 @@ jobs:
       run: |
           curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
           ghcup --url-source https://ghc.gitlab.haskell.org/ghcup-metadata/ghcup-nightlies-0.0.7.yaml install ghc latest-nightly
+          ghcup --url-source https://ghc.gitlab.haskell.org/ghcup-metadata/ghcup-nightlies-0.0.7.yaml set ghc latest-nightly
     - name: cabal update
       run: |
           cabal update
