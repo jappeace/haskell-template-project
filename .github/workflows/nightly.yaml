@@ -35,8 +35,6 @@ jobs:
           cabal update
     - name: cabal build
       run: |
-          ls
-          pwd
           cabal build all
     - name: cabal test
       run: |
