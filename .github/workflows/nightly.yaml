@@ -1,4 +1,4 @@
-name: cabal CI
+name: ghc nightly cron
 
 on:
   # runs daily on Thursday at 8:00
