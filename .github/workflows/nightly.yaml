@@ -14,7 +14,7 @@ on:
            # │ │ │ │ │
            # │ │ │ │ │
            # * * * * *
-    - cron: '0 8 * * *' # run daily  at 8 hour, https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: '0 8 * * 1' # run monday's at 8 hour, https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
       # 8 hour maybe night for you depending on your timezone.
       # change to another hour if it's not night and you're bothered by it.
       # You could also choose to run this once per week as this will open up an issue
