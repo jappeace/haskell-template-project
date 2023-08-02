@@ -49,6 +49,7 @@ cd new-project
   + [ ] Also describe your version 1.0.0 release.
 + [ ] Edit flake.nix, replace template with `new-project`.
 + [ ] Edit copyright in LICENSE
++ [ ] For automatic bound bumping: In “Settings” → “Actions” → “General” → “Workflow permissions” tick “Allow GitHub Actions to create and approve pull requests”
 
 #### Reconfigure remotes
 ```
