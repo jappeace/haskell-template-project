@@ -2,7 +2,7 @@ name: GHC Nightly Cron
 
 on:
 
-  pull_request: # comment out to have this run on PR's
+  # pull_request: # comment out to have this run on PR's
   # runs daily at 8:00
   schedule:
            # ┌───────────── minute (0 - 59)
