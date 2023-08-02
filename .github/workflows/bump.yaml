@@ -1,6 +1,6 @@
 # https://github.com/nomeata/haskell-bounds-bump-action
 on:
-  pull-request:
+  pull_request:
   # allows manual triggering from https://github.com/../../actions/workflows/bump.yml
   workflow_dispatch:
   # runs weekly on Thursday at 8:00
