@@ -26,4 +26,3 @@ jobs:
     - uses: nomeata/haskell-bounds-bump-action@main
       with:
         test: false
-        base: master
