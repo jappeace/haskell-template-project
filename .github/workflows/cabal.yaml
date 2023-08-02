@@ -9,7 +9,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ['9.6.2', '9.4.5', '9.2.8']
+        ghc: # should mirror current stable releases: https://www.haskell.org/ghc/download.html
+          - '9.6.2'
+          - '9.4.5'
+          - '9.2.8'
         os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
@@ -17,7 +20,7 @@ jobs:
     - uses: haskell/actions/setup@v2
       with:
         ghc-version: ${{ matrix.ghc }}
-        cabal-version: '3.6'
+        cabal-version: '3.10' # latest: https://github.com/haskell/cabal/releases
 
     - name: Cabal cache
       uses: actions/cache@v3
