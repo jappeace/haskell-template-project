@@ -1,5 +1,3 @@
-name: GHC Nightly Cron
-
 on:
 
   # pull_request: # comment out to have this run on PR's
