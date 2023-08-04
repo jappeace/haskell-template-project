@@ -16,14 +16,8 @@
   outputs = { self, nixpkgs, flake-compat, wasm }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      hpkgs = pkgs.haskellPackages.override {
-        overrides = hnew: hold: {
-          template-project = hnew.callCabal2nix "template-project" ./. { };
-        };
-      };
     in
     {
-      defaultPackage.x86_64-linux =  hpkgs.template-project;
       inherit pkgs;
       inherit wasm;
       devShell.x86_64-linux = pkgs.mkShell
