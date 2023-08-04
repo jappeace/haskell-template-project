@@ -26,12 +26,12 @@
       defaultPackage.x86_64-linux =  hpkgs.template-project;
       inherit pkgs;
       inherit wasm;
-      devShell.x86_64-linux = hpkgs.shellFor {
-        packages = ps : [ ps."template-project" ];
-        withHoogle = true;
+      devShell.x86_64-linux = pkgs.mkShell
+        {
 
         buildInputs = [
           wasm.packages.x86_64-linux.cabal
+          wasm.packages.x86_64-linux.wasm32-wasi-ghc-9_6
         ];
       };
     };
