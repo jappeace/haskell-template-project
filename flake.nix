@@ -29,7 +29,9 @@
       devShell.x86_64-linux = pkgs.mkShell
         {
 
-        buildInputs = [
+        packages = [
+          (pkgs.writeShellScriptBin "ghc" "exec -a $0 ${wasm.packages.x86_64-linux.wasm32-wasi-ghc-9_6}/bin/wasm32-wasi-ghc $@")
+          (pkgs.writeShellScriptBin "ghc-pkg" "exec -a $0 ${wasm.packages.x86_64-linux.wasm32-wasi-ghc-9_6}/bin/wasm32-wasi-ghc-pkg $@")
           wasm.packages.x86_64-linux.cabal
           wasm.packages.x86_64-linux.wasm32-wasi-ghc-9_6
         ];
