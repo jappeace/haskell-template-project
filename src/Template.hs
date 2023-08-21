@@ -4,4 +4,4 @@ module Template
 where
 
 main :: IO ()
-main = putStrLn "hello, world flaky
+main = putStrLn "hello, world flaky"
