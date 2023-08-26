@@ -52,6 +52,7 @@ common common-options
     -Wcpp-undef -fwarn-tabs -Wpartial-fields
     -fdefer-diagnostics -Wunused-packages
     -fenable-th-splice-warnings
+    -fno-omit-yields
 
   build-depends:
       base >=4.9.1.0 && <4.18.0.0
