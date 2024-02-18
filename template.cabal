@@ -17,6 +17,7 @@ build-type:     Simple
 extra-source-files:
     Readme.md
     LICENSE
+extra-doc-files:
     Changelog.md
 
 source-repository head
