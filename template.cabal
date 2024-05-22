@@ -56,7 +56,7 @@ common common-options
     -fno-omit-yields
 
   build-depends:
-      base >=4.9.1.0 && <4.20.0
+      base >=4.9.1.0 && <4.21.0
 
   default-language: Haskell2010
 
