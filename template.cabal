@@ -54,6 +54,7 @@ common common-options
     -fdefer-diagnostics -Wunused-packages
     -fenable-th-splice-warnings
     -fno-omit-yields
+    -threaded -rtsopts "-with-rtsopts=-N -M7G -T -Iw10"
 
   build-depends:
       base >=4.9.1.0 && <4.18.0.0 || ^>=4.19.0
