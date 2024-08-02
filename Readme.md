@@ -12,7 +12,7 @@ If you like nix this is a good way of doing haskell development.
 
 similar to: https://github.com/monadfix/nix-cabal
 except this has a makefile and ghcid.
-We also make aggressive use of [pinning](https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs)
+We also make aggressive use of [pinning](https://wiki.nixos.org/wiki/FAQ/Pinning_Nixpkgs)
 ensuring project builds for ever (theoretically).
 
 Comes with:
