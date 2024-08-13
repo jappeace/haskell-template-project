@@ -12,6 +12,7 @@ jobs:
           - '9.8'
           - '9.6'
         os: [ubuntu-latest, macOS-latest, windows-latest]
+        cabal: ['latest']
 
     steps:
     - uses: actions/checkout@v3
