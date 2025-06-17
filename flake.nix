@@ -14,7 +14,7 @@
   outputs = { self, nixpkgs, flake-compat }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      hpkgs = pkgs.haskellPackages.override {
+      hpkgs = pkgs.haskell.packages.ghc984.override {
         overrides = hnew: hold: {
           template-project = hnew.callCabal2nix "template-project" ./. { };
         };

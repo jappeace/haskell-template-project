@@ -1,10 +1,8 @@
-module Template
-  ( main
-  )
-where
+-- A simple Haskell program to implement a text-based Tic Tac Toe game
 
-import Data.List (intercalate, transpose, (!?))
-import Data.Maybe(fromMaybe)
+module Main where
+
+import Data.List (intercalate, transpose)
 
 type Board = [[String]]
 
@@ -15,14 +13,12 @@ printBoard :: Board -> IO ()
 printBoard board = do
     putStrLn $ intercalate "\n-+-+-\n" (map (intercalate "|") board)
 
-data MoveIssue  = IssueColumnBound Int
-                | IssueRowBound Int
+isValidMove :: Board -> Int -> Int -> Bool
+isValidMove board row col =
+  let isInBounds = row >= 0 && row < 3 && col >= 0 && col < 3
+      isEmptySpace = (board !! row !! col == " ")
+   in isInBounds && isEmptySpace
 
-isValidMove :: Board -> Int -> Int -> Either MoveIssue Bool
-isValidMove board row col = do
-  columns <- maybe (Left (IssueRowBound row)) Right $ board !? row
-  location <- maybe (Left (IssueColumnBound col)) Right $ columns !? col
-  Right $ location == " "
 
 makeMove :: Board -> Int -> Int -> String -> Board
 makeMove board row col player =
@@ -53,11 +49,8 @@ playGame board currentPlayer = do
     putStrLn $ "Player " ++ currentPlayer ++ ", enter your move (row and column separated by a space):"
     input <- getLine
     let [row, col] = map read (words input)
-    case isValidMove board row col of
-      Left (IssueColumnBound col) -> putStrLn $ "unexpected column, (needs to be be any of 0, 1 or 2) " <> show col
-      Left (IssueRowBound row) -> putStrLn $ "unexpected row, (needs to be be any of 0, 1 or 2) " <> show row
-      Right isEmpty ->
-        if isEmpty then do
+    if isValidMove board row col
+        then do
             let newBoard = makeMove board row col currentPlayer
             if checkWinner newBoard currentPlayer
                 then do
