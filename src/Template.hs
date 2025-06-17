@@ -3,14 +3,15 @@ module Template
   )
 where
 
-main :: IO ()
-main = putStrLn "hello, world flaky"
-
 -- make sure NOT to use safe exceptions (they'll neglect async)
 import Control.Exception(try, Exception)
 
 import Control.Concurrent.MVar
 import Control.Monad.Reader
+
+
+main :: IO ()
+main = putStrLn "hello, world flaky"
 
 data MyIO a = MyIO { unMy :: ReaderT (MVar ()) IO a }
    deriving (Functor)
