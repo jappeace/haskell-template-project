@@ -12,6 +12,9 @@
   outputs = { self, nixpkgs, flake-compat }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      # you can pin a specific ghc version with
+      # pkgs.haskell.packages.ghc984 for example.
+      # this allows you to create multiple compiler targets via nix.
       hpkgs = pkgs.haskellPackages.override {
         overrides = hnew: hold: {
           template-project = hnew.callCabal2nix "template-project" ./. { };
