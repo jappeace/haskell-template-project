@@ -59,8 +59,6 @@ main = do
   putStrLn "disection"
   print $ disectPerson @Person $ (from secondPerson)
 
--- this won't work because it leaks out the generic represnetation to
--- the callsite, so it's not generic in fact.
 disectPerson :: forall a name a0 b0 c0 d0 . (KnownSymbol name, Rep a ~  M1 D (MetaData name a0 b0 c0) d0) => Rep a () -> [Text]
 disectPerson
   x =
