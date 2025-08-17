@@ -1,7 +1,67 @@
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Template
   ( main
   )
 where
 
+import Data.Text
+import GHC.Generics
+import GHC.TypeLits(symbolVal, KnownSymbol )
+import Data.Proxy
+
+data Address = Address {
+  street :: Text,
+  postalCode :: Text
+  } deriving (Generic, Show)
+
+data Person = Person {
+  homeAddress :: Address,
+  workAddress :: Address,
+  name :: Text
+  } deriving (Generic, Show)
+
+firstPerson :: Person
+firstPerson = Person {
+  workAddress = Address {
+      street = "ponton",
+      postalCode = "8882NN"
+  },
+  homeAddress = Address {
+      street = "wayaka",
+      postalCode = "8482NK"
+  },
+  name = "Albertus"
+  }
+
+secondPerson :: Person
+secondPerson = Person {
+  workAddress = Address {
+      street = "ponton",
+      postalCode = "8882NN"
+  },
+  homeAddress = Address {
+      street = "walashali",
+      postalCode = "8432NK"
+  },
+  name = "Hendrik"
+  }
+
 main :: IO ()
-main = putStrLn "hello, world flaky"
+main = do
+  putStrLn "show magic"
+  print secondPerson
+  putStrLn "generic magic"
+  print (from secondPerson)
+  putStrLn "disection"
+  print $ disectPerson $ (from secondPerson)
+
+disectPerson :: Rep Person () -> [Text]
+disectPerson
+  x = [getDataTypeConstructorName x]
+
+
+getDataTypeConstructorName :: forall name a b c d e . (KnownSymbol name) => D1 ('MetaData name a b c) d e -> Text
+getDataTypeConstructorName _ = pack $ symbolVal (Proxy @name)
