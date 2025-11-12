@@ -24,7 +24,6 @@ Comes with:
 + Working test suite.
 + functioining CI (pick your favorite or keep both)
   + for various platforms with cabal
-  + a nix flake. 
 
 ## Usage
 
@@ -44,7 +43,7 @@ cd new-project
 + [ ] Edit Changelog.md
   + [ ] replace template with `new-project`
   + [ ] Also describe your version 1.0.0 release.
-+ [ ] Edit flake.nix, replace template with `new-project`.
++ [x] Edit default.nix and shell.nix, replace template with `new-project`.
 + [ ] Edit copyright in LICENSE
 + [ ] For automatic bound bumping: In “Settings” → “Actions” → “General” → “Workflow permissions” tick “Allow GitHub Actions to create and approve pull requests”
 
