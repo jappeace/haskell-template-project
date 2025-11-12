@@ -1,10 +1,19 @@
-(import
-  (
-    let lock = builtins.fromJSON (builtins.readFile ./flake.lock); in
-    fetchTarball {
-      url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
-      sha256 = lock.nodes.flake-compat.locked.narHash;
-    }
-  )
-  { src = ./.; }
-).defaultNix
+{ sources ? import ./npins
+,
+}:
+let
+  pkgs = import sources.nixpkgs { };
+  # you can pin a specific ghc version with
+  # pkgs.haskell.packages.ghc984 for example.
+  # this allows you to create multiple compiler targets via nix.
+  hpkgs = pkgs.haskellPackages.override {
+    overrides = hnew: hold: {
+      template-project = hnew.callCabal2nix "template-project" ./. { };
+    };
+  };
+in
+{
+  defaultPackage = hpkgs.template-project;
+  hpkgs = hpkgs;
+  pkgs = pkgs;
+}
