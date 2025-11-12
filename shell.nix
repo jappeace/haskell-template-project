@@ -1,10 +1,14 @@
-(import
-  (
-    let lock = builtins.fromJSON (builtins.readFile ./flake.lock); in
-    fetchTarball {
-      url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
-      sha256 = lock.nodes.flake-compat.locked.narHash;
-    }
-  )
-  { src = ./.; }
-).shellNix
+{
+  hpkgs ? import ./nix/hpkgs.nix {},
+  pkgs ? import ./nix/pkgs.nix {},
+}:
+hpkgs.shellFor {
+  packages = ps: [ ps."template-project" ];
+  withHoogle = false;
+
+  buildInputs = [
+    hpkgs.haskell-language-server
+    pkgs.ghcid
+    pkgs.cabal-install
+  ];
+}

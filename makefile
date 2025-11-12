@@ -42,7 +42,7 @@ clean:
 .PHONY: test
 
 sdist:
-	nix build . # ad-hoc proof it builds
+	nix-build .  # ad-hoc proof it builds
 	cabal sdist
 
 run:
