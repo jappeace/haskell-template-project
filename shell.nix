@@ -1,13 +1,14 @@
-let
-  def = import ./default.nix { };
-in
-def.hpkgs.shellFor {
+{
+  hpkgs ? import ./nix/hpkgs.nix {},
+  pkgs ? import ./nix/pkgs.nix {},
+}:
+hpkgs.shellFor {
   packages = ps: [ ps."template-project" ];
   withHoogle = false;
 
   buildInputs = [
-    def.hpkgs.haskell-language-server
-    def.pkgs.ghcid
-    def.pkgs.cabal-install
+    hpkgs.haskell-language-server
+    pkgs.ghcid
+    pkgs.cabal-install
   ];
 }
