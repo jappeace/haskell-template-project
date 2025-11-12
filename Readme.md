@@ -72,7 +72,7 @@ There will be a large amount of conflicts, but the merge commit should solve the
 ### Tools
 Enter the nix shell.
 ```
-nix develop
+nix-shell
 ```
 You can checkout the makefile to see what's available:
 ```
