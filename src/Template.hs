@@ -3,16 +3,14 @@
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE RebindableSyntax #-}
-{-# LANGUAGE AllowAmbiguousTypes #-}
 module Template
   ( myTenProgram
   , myFiveProgram
   )
 where
 
-import Prelude (IO, fromInteger, Int, Char, Functor, putStrLn, Bool(..))
-import Data.String(fromString)
-import GHC.TypeLits (type (+), type (<=) , type(<=?), Nat)
+import Prelude (fromInteger, Int, Char, Functor)
+import GHC.TypeLits (type (+), Nat)
 
 newtype MyInstruct (i :: Nat) a = MyInstruct a
   deriving (Functor)
