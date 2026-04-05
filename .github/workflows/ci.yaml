@@ -22,11 +22,8 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
         extra_nix_config: |
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-
-    - uses: cachix/cachix-action@v15
-      with:
-        name: jappie
-        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          extra-substituters = https://nix-cache.jappie.me
+          extra-trusted-public-keys = nix-cache.jappie.me:WjkKcvFtHih2i+n7bdsrJ3HuGboJiU2hA2CZbf9I9oc=
     - run: nix-build
     - run: nix-shell --run "echo OK"
     - run: nix-shell --run "cabal build"
