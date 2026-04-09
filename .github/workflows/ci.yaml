@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Local cache
-      uses: actions/cache@v4
-      with:
-        path: /nix/store
-        key: "${{ runner.os }}-nix-cache"
     - uses: cachix/install-nix-action@v31
       with:
         nix_path: nixpkgs=channel:nixos-unstable
@@ -24,6 +19,11 @@ jobs:
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
           extra-substituters = https://nix-cache.jappie.me
           extra-trusted-public-keys = nix-cache.jappie.me:WjkKcvFtHih2i+n7bdsrJ3HuGboJiU2hA2CZbf9I9oc=
+    - name: Nix store cache
+      uses: nix-community/cache-nix-action@v6
+      with:
+        primary-key: nix-${{ hashFiles('npins/sources.json', 'nix/*.nix', '*.cabal') }}
+        restore-prefixes-first-match: nix-
     - run: nix-build
     - run: nix-shell --run "echo OK"
     - run: nix-shell --run "cabal build"
