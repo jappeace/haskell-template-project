@@ -24,7 +24,7 @@ jobs:
       with:
         primary-key: nix-${{ hashFiles('npins/sources.json', 'nix/*.nix', '*.cabal') }}
         restore-prefixes-first-match: nix-
-    - run: nix-build
+    - run: nix-build nix/ci.nix
     - run: nix-shell --run "echo OK"
     - run: nix-shell --run "cabal build"
     - name: Cancel workflow on failure
