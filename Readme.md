@@ -1,4 +1,4 @@
-[![https://jappieklooster.nl](https://img.shields.io/badge/blog-jappieklooster.nl-lightgrey)](https://jappieklooster.nl/tag/haskell.html)
+[![https://jappie.me](https://img.shields.io/badge/blog-jappie.me-lightgrey)](https://jappie.me/tag/haskell.html)
 [![Github actions build status](https://img.shields.io/github/actions/workflow/status/jappeace/haskell-template-project/nix.yaml?branch=master)](https://github.com/jappeace/haskell-template-project/actions)
 [![Jappiejappie](https://img.shields.io/badge/discord-jappiejappie-black?logo=discord)](https://discord.gg/Hp4agqy)
 [![Hackage version](https://img.shields.io/hackage/v/template.svg?label=Hackage)](https://hackage.haskell.org/package/template) 
@@ -16,7 +16,7 @@ We also make aggressive use of [pinning](https://wiki.nixos.org/wiki/FAQ/Pinning
 ensuring project builds for ever (theoretically).
 
 Comes with:
-+ [GHCID](https://jappieklooster.nl/ghcid-for-multi-package-projects.html)
++ [GHCID](https://jappie.me/ghcid-for-multi-package-projects.html)
 + a nix shell, meaning somewhat platform independence.
   + which is pinned by default
 + A couple of handy make commands.
