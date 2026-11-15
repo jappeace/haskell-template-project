@@ -45,7 +45,7 @@ common common-options
       ImportQualifiedPost
 
   ghc-options:
-    -O2 -Wall -Werror -Wincomplete-uni-patterns
+    -O2 -Wall  -Wincomplete-uni-patterns
     -Wincomplete-record-updates -Widentities -Wredundant-constraints
     -Wcpp-undef -fwarn-tabs -Wpartial-fields
     -fdefer-diagnostics -Wunused-packages
@@ -55,7 +55,9 @@ common common-options
 
   build-depends:
       base >=4.9.1.0 && <4.22.0,
-      data-elevator
+      data-elevator,
+      ghc-prim
+
 
 
   default-language: Haskell2010

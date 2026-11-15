@@ -1,6 +1,7 @@
 {-# LANGUAGE RequiredTypeArguments #-}
 {-# LANGUAGE MagicHash #-}
 {-# LANGUAGE UnboxedTuples #-}
+{-# LANGUAGE RankNTypes #-}
 module Template
   ( main
   , prompt
@@ -8,16 +9,38 @@ module Template
   )
 where
 
-import Prelude(error, ($), Int, (.), fmap)
+import Prelude(error, ($), Int, (.), fmap, putStrLn, print, pure, Show, getLine)
 import Data.Elevator
 import GHC.Types(IO(..))
 import GHC.Exts(State#, RealWorld)
 import GHC.Prim(PromptTag#, newPromptTag#, prompt#, control0#)
 
+-- | we used a team of stientist and they told us error codes
+-- would be the way forward.
+--
+-- whenever you stand in front of your dishwasher and see error 512
+-- you immediatly think, yes, the water suply.
+-- stience!!!
+data ContinuationTag = MkMyException { ezUnderstandErrorCode :: Int }
+                 | Success
+                 deriving Show
+
 main :: IO ()
 main = do
-  tag <- promptTag Int
-  error "we didn't use it"
+  tag <- promptTag ContinuationTag
+
+  exception11 <- prompt tag $ do
+    putStrLn "nothing ever happens"
+    res <- getLine
+    case res of
+        "izhacker" -> control0 tag $ \restore -> pure (MkMyException 5)
+        else'  -> putStrLn else'
+
+    pure Success
+
+
+  print exception11
+
 
 
 promptTag :: forall a -> IO (Lazy (PromptTag# a))
